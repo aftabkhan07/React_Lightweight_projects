@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import "./styles.css";
 import NewTodoForm from "./NewTodoForm";
 import TodoList from "./TodoList";
+import NoteState from "../context/NoteState";
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -43,9 +44,11 @@ function App() {
 
   return (
     <>
+    <NoteState>
       <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">Todo List</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
+    </NoteState>
     </>
   );
 }
